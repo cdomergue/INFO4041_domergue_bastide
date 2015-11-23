@@ -15,6 +15,14 @@
   <%= @picture.location %>
 </p>
 
+<p>
+  <b>Catégorie:</b>
+  <%= @picture.category.name %>
+</p>
+<p>
+  <b>Note:</b>
+  <%= @picture.moyenne %>
+</p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
