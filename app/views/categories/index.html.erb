@@ -1,25 +1,35 @@
-<h1>Listing categories</h1>
+<%= stylesheet_link_tag    'categories.css.sass', media:'all', 'data-turbolinks-track' => true %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
+<h1>Les catégories</h1>
+<div class="panel panel-default">
+
+<div class="panel-body">
+  
 <% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= category.description %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <%= link_to (category) do %>
+    <div class="col-md-3 panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-logo">
+          <img class="image" src=<%= category.logo %>>
+        </div>
+          <%= category.name %>
+        
+      </div>
+      
+      <div class="panel-body categories">
+        <%= category.description %><br><br>
+        <div class="btn btn-info"><%= link_to 'Modifier', edit_category_path(category) %></div>
+        <div class="btn btn-danger"><%= link_to 'Supprimer', category, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
+     
+    </div>
+     <% end %>
 <% end %>
-</table>
+</div>
 
 <br />
 
-<%= link_to 'New Category', new_category_path %>
+</div>
+
+<div class="btn btn-success"><%= link_to 'Ajouter une catégorie', new_category_path %></div>
