@@ -1,0 +1,19 @@
+= stylesheet_link_tag    'categories.css.sass', media:'all', 'data-turbolinks-track' => true
+%p#notice= notice
+%p
+  %h1
+    = @category.name
+.subtitle
+  = @category.description
+.panel.panel-default
+  .panel-body
+    -  @category.pictures.each do |pics|
+      .col-md-3.picture-list
+        .image
+          = link_to picture_path(pics) do
+            %img.image{:src => pics.location, :alt => pics.name}
+        .name
+          = pics.name
+= link_to 'Edit', edit_category_path(@category)
+|
+\#{link_to 'Back', categories_path}

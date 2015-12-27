@@ -1,0 +1,21 @@
+= stylesheet_link_tag    'categories.css.sass', media:'all', 'data-turbolinks-track' => true
+%p#notice= notice
+%p
+  %h1
+    = @picture.name
+.subtitle
+  = @picture.description
+.panel.panel-default
+  .panel-body
+    %img.image{:src => @picture.location, :alt => @picture.name}
+    %br
+    %br
+    %p
+      %b Catégorie:
+      = @picture.category.name
+    %p
+      %b Note:
+      = @picture.moyenne
+= link_to 'Modifier', edit_picture_path(@picture)
+|
+\#{link_to 'Retour', @picture.category}

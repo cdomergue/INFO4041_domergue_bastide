@@ -1,6 +1,11 @@
-<h1>Editing picture</h1>
+<%= stylesheet_link_tag    'categories.css.sass', media:'all', 'data-turbolinks-track' => true %>
+<h1>Modifier l'image</h1>
 
-<%= render 'form' %>
+<div class="panel panel-default">
+	<div class="panel-body">
+	<%= render 'form' %>
+	</div>
+</div>
 
 <%= link_to 'Show', @picture %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to 'Back', @picture.category %>

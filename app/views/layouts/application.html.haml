@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %title YouPicture - Share all your pictures with the world ! (no pr0n)
+    = stylesheet_link_tag    'application.css.sass', media:'all', 'data-turbolinks-track' => true
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "/"} YouPicture
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Catégories
+                %span.caret
+              %ul.dropdown-menu
+                - Category.all.each do |cats|
+                  %li= link_to cats.name, category_path(cats)
+            %li
+              = link_to 'Ajouter image', new_picture_path
+            %li
+              %a{:href => "#contact"} Contact
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "../navbar/"} Se connecter
+            %li
+              %a{:href => "../navbar/"} S'inscrire
+        / /.nav-collapse
+    .container
+      = yield

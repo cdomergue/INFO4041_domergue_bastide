@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'turbolinks'
+gem 'haml'
 
 
 # To use ActiveModel has_secure_password

@@ -4,5 +4,5 @@ class Picture < ActiveRecord::Base
   def moyenne
     notes.map{|note| note.value}.sum / notes.size unless notes.empty?
   end
-  attr_accessible :description, :location, :name, :category
+  attr_accessible :description, :location, :name, :category, :category_id
 end

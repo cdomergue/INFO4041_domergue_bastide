@@ -1,0 +1,24 @@
+= stylesheet_link_tag    'categories.css.sass', media:'all', 'data-turbolinks-track' => true
+%h1 Les catégories
+.panel.panel-default
+  .panel-body
+    - @categories.each do |category|
+      .col-md-3.panel.panel-default
+        = link_to (category) do
+          .panel-heading
+            .panel-logo
+              %img.image{:src => category.logo}/
+              
+            = category.name
+        .panel-body.categories
+          .description
+            = category.description
+          .boutons
+            = link_to edit_category_path(category) do
+              .btn.btn-info Modifier
+            = link_to category, method: :delete, data: { confirm: 'Etes-vous sur ?' } do
+              .btn.btn-danger Supprimer
+
+  %br/
+= link_to new_category_path do
+  .btn.btn-success Ajouter une catégorie

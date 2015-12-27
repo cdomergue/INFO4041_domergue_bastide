@@ -1,6 +1,11 @@
-<h1>Editing category</h1>
+<%= stylesheet_link_tag    'categories.css.sass', media:'all', 'data-turbolinks-track' => true %>
+<h1>Modifier la catégorie</h1>
 
-<%= render 'form' %>
+<div class="panel panel-default">
+	<div class="panel-body">
+	<%= render 'form' %>
+	</div>
+</div>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Voir', @category %> |
+<%= link_to 'Retour', categories_path %>
