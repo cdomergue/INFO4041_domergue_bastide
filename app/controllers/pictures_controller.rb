@@ -1,15 +1,6 @@
 class PicturesController < ApplicationController
-  # GET /pictures
-  # GET /pictures.json
-  def index
-    @pictures = Picture.all
-    @categories = Category.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @pictures }
-    end
-  end
+  before_filter :authenticate_user!, except: [:show]
 
   # GET /pictures/1
   # GET /pictures/1.json
